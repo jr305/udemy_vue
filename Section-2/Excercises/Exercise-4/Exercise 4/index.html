@@ -1,17 +1,18 @@
+<link rel="stylesheet" href="styles.css">
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 
 <div id="exercise">
   <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
   <div>
     <button @click="startEffect">Start Effect</button>
-    <div id="effect"></div>
+    <div id="effect" :class="effect"></div>
   </div>
   <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
-  <div>I got no class :(</div>
+  <div :class="['makeItBold', { makeItLoud : true }, makeAnImpact]">I got no class :( </div>
   <!-- 3) Let the user enter a class (create some example classes) and attach it -->
   <div>
-    <input type="text">
-    <div></div>
+    <input type="text" v-model="enteredClass" placeholder="enter class to apply (yellow/blue/red)" style="width: 300px;">
+    <div class="user-entered" :class="enteredClass"></div>
   </div>
   <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
   <div>
@@ -30,3 +31,5 @@
     <div></div>
   </div>
 </div>
+
+<script src="app.js"></script>
